@@ -5,14 +5,18 @@ import java.util.List;
 
 public class Market implements MarketBehaviour, QueueBehaviour {
 
-    private List<Actor> queue;
+    private final List<Actor> queue;
+
+    public Market() {
+        this.queue = new ArrayList<>();
+    }
 
 
     /**Пришел в магазин*/
     @Override
     public void acceptToMarket(Actor actor){
         System.out.println(actor.getName() + " пришел в магазин");
-        takeInQueue(actor);
+//        takeInQueue(actor);
     }
 
     /**Встал в очередь*/
@@ -37,7 +41,7 @@ public class Market implements MarketBehaviour, QueueBehaviour {
     @Override
     public void giveOrders() {
         for (Actor actor: queue) {
-            if (actor.isMakeOrder()) {
+            if (!actor.isMakeOrder()) {
                 actor.setTakeOrder(true);
                 System.out.println(actor.getName() + " получил свой заказ");
             }
@@ -52,6 +56,7 @@ public class Market implements MarketBehaviour, QueueBehaviour {
             if (actor.isTakeOrder()) {
                 releaseActors.add(actor);
                 System.out.println(actor.getName() + " вышел из очереди и готов уходить");
+                System.out.println("-----------------------------------------");
             }
         }
         releaseFromMarket(releaseActors);
