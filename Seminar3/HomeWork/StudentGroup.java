@@ -1,4 +1,4 @@
-package Seminar3;
+package Seminar3.HomeWork;
 
 import lombok.Data;
 import lombok.Getter;
@@ -8,12 +8,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-@Getter
-@ToString
-//@Data
+//@Getter
+//@ToString
+@Data
 public class StudentGroup implements Iterable<Student> {
 
-    private final List<Student> studentsList;
+//    private final
+    List<Student> studentsList;
 
     public StudentGroup() {
         studentsList = new ArrayList<>();

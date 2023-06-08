@@ -1,6 +1,4 @@
-package Seminar3;
-
-import lombok.Data;
+package Seminar3.HomeWork;
 
 import java.util.Iterator;
 import java.util.List;
