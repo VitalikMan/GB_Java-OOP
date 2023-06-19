@@ -1,5 +1,6 @@
 package Seminar4.HomeWork.service;
 
+import Seminar4.HomeWork.model.Teacher;
 import Seminar4.HomeWork.model.User;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public interface UserService<T extends User> {
     List<T> getAllSortUsersByFamilyName();
     List<T> getAllSortUsersByAge();
     void removeUser(String fullName);
-
+    void edit(Long id);
 }

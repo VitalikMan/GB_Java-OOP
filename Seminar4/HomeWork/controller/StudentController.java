@@ -44,4 +44,10 @@ public class StudentController implements UserController<Student> {
     public List<Student> getAllSortUsersByAge() {
         return studentService.getAllSortUsersByAge();
     }
+
+    @Override
+    public void edit(Long id) {
+        studentService.edit(id);
+    }
+
 }

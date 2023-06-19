@@ -41,6 +41,8 @@ public class Main {
         teacherView.sendOnConsole(SortType.AGE);
         teacherView.removeUser("Ilya Medyankin");
         teacherView.sendOnConsole(SortType.NONE);
+        teacherView.edit(1L);
+        teacherView.sendOnConsole(SortType.NONE);
     }
 
     private static StudentView getStudentView() {

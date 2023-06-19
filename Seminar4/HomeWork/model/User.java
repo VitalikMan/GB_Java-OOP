@@ -1,12 +1,13 @@
 package Seminar4.HomeWork.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class User {
     private final Long id;
-    private final String fullName;
-    private final Integer age;
-    private final String phoneNumber;
-
+    private String fullName;
+    private Integer age;
+    private String phoneNumber;
 }
