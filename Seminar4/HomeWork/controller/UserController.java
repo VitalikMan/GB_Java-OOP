@@ -12,4 +12,5 @@ public interface UserController<T extends User> {
     List<T> getAll();
     List<T> getAllSortUsersByAge();
 
+    void edit(Long id);
 }

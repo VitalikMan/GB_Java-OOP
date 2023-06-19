@@ -1,6 +1,7 @@
 package Seminar4.HomeWork.service;
 
 import Seminar4.HomeWork.model.Student;
+import Seminar4.HomeWork.model.Teacher;
 import Seminar4.HomeWork.model.User;
 import Seminar4.HomeWork.repository.StudentRepository;
 import Seminar4.HomeWork.repository.UserRepository;
@@ -8,6 +9,7 @@ import Seminar4.HomeWork.repository.UserRepository;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class StudentService implements UserService<Student> {
     private final UserRepository<Student> studentRepository;
@@ -64,5 +66,22 @@ public class StudentService implements UserService<Student> {
     @Override
     public void removeUser(String fullName) {
         studentRepository.remove(fullName);
+    }
+
+    @Override
+    public void edit(Long id) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Редактирование учителя");
+        for (Student student : studentRepository.getAll()) {
+            if (student.getId().equals(id)) {
+                System.out.print("Введите полное имя: ");
+                student.setFullName(in.nextLine());
+                System.out.print("Введите возраст: ");
+                student.setAge(Integer.valueOf(in.nextLine()));
+                System.out.print("Введите номер телефона: ");
+                student.setPhoneNumber(in.nextLine());
+
+            }
+        }
     }
 }

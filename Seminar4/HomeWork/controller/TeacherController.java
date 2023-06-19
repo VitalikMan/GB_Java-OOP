@@ -43,4 +43,9 @@ public class TeacherController implements UserController<Teacher> {
     public List<Teacher> getAllSortUsersByAge() {
         return teacherService.getAllSortUsersByAge();
     }
+
+    @Override
+    public void edit(Long id) {
+        teacherService.edit(id);
+    }
 }

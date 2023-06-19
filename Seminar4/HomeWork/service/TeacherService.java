@@ -8,6 +8,7 @@ import Seminar4.HomeWork.repository.UserRepository;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class TeacherService implements UserService<Teacher> {
     private final UserRepository<Teacher> teacherRepository;
@@ -18,10 +19,15 @@ public class TeacherService implements UserService<Teacher> {
 
     @Override
     public void create(String fullName, Integer age, String phoneNumber) {
+        for (Teacher teacher : teacherRepository.getAll()) {
+            if (teacher.getFullName().equals(fullName)) {
+                System.out.println("(create:)'"+fullName+ "' <- запись уже существует");
+                return;
+            }
+        }
         Long id = teacherRepository.getMaxId() + 1;
         Teacher teacher = new Teacher(id, fullName, age, phoneNumber);
         teacherRepository.add(teacher);
-        System.out.println(teacher);
     }
 
     @Override
@@ -56,5 +62,23 @@ public class TeacherService implements UserService<Teacher> {
     @Override
     public void removeUser(String fullName) {
         teacherRepository.remove(fullName);
+    }
+
+    @Override
+    public void edit(Long id) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Редактирование учителя");
+        for (Teacher teacher : teacherRepository.getAll()) {
+            if (teacher.getId().equals(id)){
+                System.out.print("Введите полное имя: ");
+                teacher.setFullName(in.nextLine());
+                System.out.print("Введите возраст: ");
+                teacher.setAge(Integer.valueOf(in.nextLine()));
+                System.out.print("Введите номер телефона: ");
+                teacher.setPhoneNumber(in.nextLine());
+
+            }
+
+        }
     }
 }

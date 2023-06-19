@@ -45,4 +45,9 @@ public class StudentView implements UserView<Student> {
         System.out.println(fullName);
         controller.removeUser(fullName);
     }
+
+    @Override
+    public void edit(Long id) {
+        controller.edit(id);
+    }
 }
