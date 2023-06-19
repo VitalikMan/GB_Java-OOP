@@ -1,6 +1,5 @@
 package Seminar4.HomeWork.service;
 
-import Seminar4.HomeWork.model.Teacher;
 import Seminar4.HomeWork.model.User;
 
 import java.util.List;
